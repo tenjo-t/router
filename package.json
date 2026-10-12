@@ -1,0 +1,50 @@
+{
+  "name": "@tenjot/router",
+  "version": "1.0.0",
+  "description": "A tiny trie-based router compatible with URLPattern, forked from Hono's TrieRouter",
+  "keywords": [
+    "router",
+    "urlpattern"
+  ],
+  "homepage": "https://github.com/tenjo-t/router#readme",
+  "bugs": {
+    "url": "https://github.com/tenjo-t/router/issues"
+  },
+  "license": "MIT",
+  "author": "tenjo-t",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tenjo-t/router.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "test": "node --test \"src/**/*.test.ts\"",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24",
+    "oxfmt": "^0.72.0",
+    "tsdown": "^0.23.1",
+    "typescript": "^7.0.2"
+  }
+}
